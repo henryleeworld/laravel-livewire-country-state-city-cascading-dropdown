@@ -6,11 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ trans('frontend.houses.create.title') }}</div>
-                    @if(session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+
                     <div class="card-body">
                         <form method="POST" action="{{ route('houses.store') }}">
                             @csrf
@@ -32,43 +28,8 @@
                                 </div>
                             </div>
 
-                            @livewire('country-state-city')
-                            <!--                       
-                            <div class="form-group row">
-                                <label for="country"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.country') }}</label>
+                            @livewire('country-state-city', ['selectedCity' => 1])
 
-                                <div class="col-md-6">
-                                    <select class="form-control" id="country_id">
-                                        <option value="" selected>{{ trans('frontend.houses.create.content.choose_country') }}</option>
-                                        @foreach($countries as $country)
-                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row d-none" id="state">
-                                <label for="state"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.state') }}</label>
-
-                                <div class="col-md-6">
-                                    <select class="form-control" id="state_id">
-                                        <option value="" selected>{{ trans('frontend.houses.create.content.choose_state') }}</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row d-none" id="city">
-                                <label for="city" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.city') }}</label>
-
-                                <div class="col-md-6">
-                                    <select class="form-control" id="city_id">
-                                        <option value="" selected>{{ trans('frontend.houses.create.content.choose_city') }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            -->
                             <div class="form-group row">
                                 <label for="price"
                                        class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.price_in_usd') }}</label>
