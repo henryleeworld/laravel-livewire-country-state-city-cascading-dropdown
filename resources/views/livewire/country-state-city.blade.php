@@ -1,5 +1,5 @@
 <div>
-    <div class="form-group row">
+    <div class="mb-3 row">
         <label for="country" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.country') }}</label>
 
         <div class="col-md-6">
@@ -11,9 +11,8 @@
             </select>
         </div>
     </div>
-
     @if (!is_null($selectedCountry))
-        <div class="form-group row">
+        <div class="mb-3 row">
             <label for="state" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.state') }}</label>
 
             <div class="col-md-6">
@@ -28,7 +27,7 @@
     @endif
 
     @if (!is_null($selectedState))
-        <div class="form-group row">
+        <div class="mb-3 row">
             <label for="city" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.city') }}</label>
 
             <div class="col-md-6">

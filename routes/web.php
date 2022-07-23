@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\StateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,16 +16,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('houses', App\Http\Controllers\HouseController::class)
+Route::resource('houses', HouseController::class)
     ->only(['create', 'store']);
 
-Route::get('cities', [App\Http\Controllers\CityController::class, 'index'])
+Route::get('cities', [CityController::class, 'index'])
     ->name('cities.index');
 
-Route::get('states', [App\Http\Controllers\StateController::class, 'index'])
+Route::get('states', [StateController::class, 'index'])
     ->name('states.index');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

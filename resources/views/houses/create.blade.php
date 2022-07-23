@@ -8,10 +8,15 @@
                     <div class="card-header">{{ trans('frontend.houses.create.title') }}</div>
 
                     <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('houses.store') }}">
                             @csrf
 
-                            <div class="form-group row">
+                            <div class="mb-3 row">
                                 <label for="name"
                                        class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.house_name') }}</label>
 
@@ -28,9 +33,9 @@
                                 </div>
                             </div>
 
-                            @livewire('country-state-city', ['selectedCity' => 1])
+                            @livewire('country-state-city', ['selectedCity' => NULL])
 
-                            <div class="form-group row">
+                            <div class="mb-3 row">
                                 <label for="price"
                                        class="col-md-4 col-form-label text-md-right">{{ trans('frontend.houses.create.content.price_in_usd') }}</label>
 
@@ -47,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
+                            <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ trans('frontend.houses.create.content.save') }}
@@ -60,48 +65,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#country_id').change(function () {
-                var $state = $('#state_id');
-                $.ajax({
-                    url: "{{ route('states.index') }}",
-                    data: {
-                        country_id: $(this).val()
-                    },
-                    success: function (data) {
-                        $state.html('<option value="" selected>Choose state</option>');
-                        $.each(data, function (id, value) {
-                            $state.append('<option value="' + id + '">' + value + '</option>');
-                        });
-                    }
-                });
-
-                $('#state_id, #city_id').val("");
-                $('#state').removeClass('d-none');
-
-            });
-
-            $('#state_id').change(function () {
-                var $city = $('#city_id');
-                $.ajax({
-                    url: "{{ route('cities.index') }}",
-                    data: {
-                        state_id: $(this).val()
-                    },
-                    success: function (data) {
-                        $city.html('<option value="" selected>Choose city</option>');
-                        $.each(data, function (id, value) {
-                            $city.append('<option value="' + id + '">' + value + '</option>');
-                        });
-                    }
-                });
-                $('#city').removeClass('d-none');
-            });
-        });
-    </script>
 @endsection
