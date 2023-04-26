@@ -18,9 +18,9 @@
         "laravel/pint": "^1.6",
         "laravel/sail": "^1.21",
         "mockery/mockery": "^1.5.1",
-        "nunomaduro/collision": "^7.4",
-        "phpunit/phpunit": "^10.0",
-        "spatie/laravel-ignition": "^2.0"
+        "nunomaduro/collision": "^7.5",
+        "phpunit/phpunit": "^10.1",
+        "spatie/laravel-ignition": "^2.1"
     },
     "autoload": {
         "psr-4": {
