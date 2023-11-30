@@ -10,11 +10,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    @vite(['resources/sass/app.scss'])
     @livewireStyles
 </head>
 <body>
@@ -77,6 +75,8 @@
             @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
     @livewireScripts
 </body>
 </html>
