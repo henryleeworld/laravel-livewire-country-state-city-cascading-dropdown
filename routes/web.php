@@ -14,7 +14,5 @@ Route::get('cities', [CityController::class, 'index'])
 
 Route::get('states', [StateController::class, 'index'])
     ->name('states.index');
-
 Auth::routes();
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');

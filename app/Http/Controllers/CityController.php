@@ -6,6 +6,9 @@ use App\Models\City;
 
 class CityController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $cities = City::whereHas('state', function ($query) {
