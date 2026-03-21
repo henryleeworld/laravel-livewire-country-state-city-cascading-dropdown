@@ -2,18 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\HouseFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+#[Fillable(['name', 'city_id', 'price'])]
 class House extends Model
 {
-    /** @use HasFactory<\Database\Factories\HouseFactory> */
+    /** @use HasFactory<HouseFactory> */
     use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = ['name', 'city_id', 'price'];
 }

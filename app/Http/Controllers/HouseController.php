@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreHouseRequest;
 use App\Models\Country;
 use App\Models\House;
-use App\Http\Requests\StoreHouseRequest;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller

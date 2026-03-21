@@ -2,26 +2,18 @@
 
 namespace App\Models;
 
+use Database\Factories\StateFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+#[Fillable(['country_id', 'code', 'name'])]
 class State extends Model
 {
-    /** @use HasFactory<\Database\Factories\StateFactory> */
+    /** @use HasFactory<StateFactory> */
     use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = [
-        'country_id',
-        'code',
-        'name',
-    ];
 
     /**
      * Get the cities for the state.
